@@ -6,7 +6,10 @@ project "nss3"
     kind "SharedLib"
     architecture "x86_64"
     language "c++"
+
+configuration "*"
     targetdir "bin/%{cfg.buildcfg}"
+    objdir    "bin/obj/"
 
 
 filter "files:**"
