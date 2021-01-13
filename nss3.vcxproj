@@ -71,6 +71,9 @@
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>bin\Debug\nss3.lib</ImportLibrary>
     </Link>
+    <PostBuildEvent>
+      <Command>$(solutiondir)scripts\postbuildinject.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -82,6 +85,10 @@
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>bin\Release\nss3.lib</ImportLibrary>
     </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
