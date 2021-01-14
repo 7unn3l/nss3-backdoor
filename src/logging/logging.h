@@ -2,7 +2,11 @@
 #include <string>
 #include "asio.hpp"
 
+#ifdef DEBUG
+
 #define LOG(msg) logger::debug_msg((std::ostringstream() << msg).str())
+#define INITLOG() logger::initsocket()
+
 using asio::ip::udp;
 
 namespace logger {
@@ -20,3 +24,7 @@ namespace logger {
         logsock.connect(loggingserver);
     }
 }
+#else
+#define LOG(msg);
+#define INITLOG();
+#endif

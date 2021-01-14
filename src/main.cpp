@@ -22,7 +22,7 @@ BOOL WINAPI DllMain(HINSTANCE mod, DWORD fdwReason, LPVOID resv) {
 
 	if (fdwReason == DLL_PROCESS_ATTACH){
 
-		logger::initsocket();
+		INITLOG();
 
 		LOG("dllmain called with PROCESS_ATTACH");
 
