@@ -1,6 +1,6 @@
 import socket
 
-addr = ('127.0.0.1',6961)
+addr = ('127.0.0.1',6969)
 
 class Logger():
     def __init__(self,addr):
