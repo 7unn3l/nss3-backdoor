@@ -16,6 +16,6 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 Write-Host "killing firefox"
 taskkill /IM firefox.exe /F
 Write-Host "injecting nss3.dll into firefox path"
-Move-Item $dllpath $ffoxpath -force
+Copy-Item $dllpath $ffoxpath -force
 Write-Host "done."
 pause
