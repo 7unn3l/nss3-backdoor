@@ -17,6 +17,9 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\proj.def" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6C599B7C-5890-9C0D-017D-8210ED92180F}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
@@ -70,6 +73,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>bin\Debug\nss3.lib</ImportLibrary>
+      <ModuleDefinitionFile>$(solutiondir)src\proj.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
       <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File $(solutiondir)scripts\postbuildinject.ps1 $(solutiondir)bin\x64\Debug\nss3.dll</Command>

@@ -1,0 +1,6 @@
+#pragma once
+
+LIBRARY		nss3.dll
+EXPORTS
+		PR_Write=myPR_WRITE
+		PR_Read=myPR_READ
