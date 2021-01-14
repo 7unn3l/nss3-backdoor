@@ -72,7 +72,7 @@
       <ImportLibrary>bin\Debug\nss3.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>$(solutiondir)scripts\postbuildinject.bat</Command>
+      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File $(solutiondir)scripts\postbuildinject.ps1 $(solutiondir)bin\x64\Debug\nss3.dll</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
