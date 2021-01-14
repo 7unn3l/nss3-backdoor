@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\conf\infosteal_patterns.h" />
     <ClInclude Include="src\intercepted.h" />
     <ClInclude Include="src\logging\logging.h" />
     <ClInclude Include="src\proxied.h" />
