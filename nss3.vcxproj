@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\intercepted.h" />
+    <ClInclude Include="src\logging\logging.h" />
     <ClInclude Include="src\proxied.h" />
     <ClInclude Include="src\types\types.h" />
   </ItemGroup>
@@ -57,6 +58,7 @@
     <IntDir>bin/int/$(platform)/$(configuration)</IntDir>
     <TargetName>nss3</TargetName>
     <TargetExt>.dll</TargetExt>
+    <IncludePath>C:\Program Files\asio-1.18.1\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -64,6 +66,7 @@
     <IntDir>bin/int/$(platform)/$(configuration)</IntDir>
     <TargetName>nss3</TargetName>
     <TargetExt>.dll</TargetExt>
+    <IncludePath>C:\Program Files\asio-1.18.1\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
