@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClInclude Include="src\intercepted.h" />
     <ClInclude Include="src\proxied.h" />
+    <ClInclude Include="src\types\types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
