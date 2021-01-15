@@ -12,13 +12,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\conf\infosteal_patterns.h" />
+    <ClInclude Include="src\extract\match.h" />
     <ClInclude Include="src\intercepted.h" />
     <ClInclude Include="src\logging\logging.h" />
     <ClInclude Include="src\proxied.h" />
     <ClInclude Include="src\types\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\extract\extract.cpp" />
+    <ClCompile Include="src\logging\logging.cpp" />
     <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\extract\extract.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6C599B7C-5890-9C0D-017D-8210ED92180F}</ProjectGuid>
