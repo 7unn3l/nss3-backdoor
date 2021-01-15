@@ -13,7 +13,7 @@ class Logger():
         
         while True:
             data, _ = self.sock.recvfrom(4096)
-            print(data.decode())
+            print(data.decode(errors='replace'))
 
 
 def main():
