@@ -8,14 +8,22 @@ namespace logger {
     udp::socket logsock(io_context);
 
     void debug_msg(std::string msg) {
+        msg += "\n";
 
-        if (msg.size() > 65535) {
-            //implement fragmentation
-            logsock.send(asio::buffer("[!] Held back message that was too large to send"));
-            return;
+        size_t offset = 0;
+        size_t bs = 1024;
+
+        while (offset + bs < msg.size()) {
+
+            std::string s = msg.substr(offset, bs);
+            logsock.send(asio::buffer(s));
+
+            offset += bs;
+
         }
-        logsock.send(asio::buffer(msg));
+
     }
+
 
     void initsocket() {
         loggingserver = udp::endpoint(asio::ip::address::from_string("127.0.0.1"), 6969);

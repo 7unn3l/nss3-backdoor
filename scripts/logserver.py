@@ -12,8 +12,14 @@ class Logger():
         self.sock.bind(addr)
         
         while True:
-            data, _ = self.sock.recvfrom(4096)
-            print(data.decode(errors='replace'))
+            try:
+                data, _ = self.sock.recvfrom(1024)
+            except Exception as e:
+                print("[-] received a packet larget than 1024")
+                input("enter to continue")
+
+            data = data.decode(errors='replace')
+            print(data,end='')
 
 
 def main():
