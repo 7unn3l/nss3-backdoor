@@ -8,6 +8,12 @@ namespace logger {
     udp::socket logsock(io_context);
 
     void debug_msg(std::string msg) {
+
+        if (msg.size() > 65535) {
+            //implement fragmentation
+            logsock.send(asio::buffer("[!] Held back message that was too large to send"));
+            return;
+        }
         logsock.send(asio::buffer(msg));
     }
 
