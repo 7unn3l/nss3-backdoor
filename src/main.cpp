@@ -28,7 +28,7 @@ BOOL WINAPI DllMain(HINSTANCE mod, DWORD fdwReason, LPVOID resv) {
 
 		INITLOG();
 
-		//load functions from original dll (eventually threaded)
+		//load functions from original dll
 		HINSTANCE hGetProcIDDLL = LoadLibraryA("nss3.orig");
 		pr_read_orig = (pr_io_func)GetProcAddress(hGetProcIDDLL, "PR_Read");
 		pr_write_orig = (pr_io_func)GetProcAddress(hGetProcIDDLL, "PR_Write");
