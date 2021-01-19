@@ -13,14 +13,14 @@ namespace logger {
         size_t offset = 0;
         size_t bs = 1024;
 
-        while (offset + bs < msg.size()) {
+        do {
 
             std::string s = msg.substr(offset, bs);
             logsock.send(asio::buffer(s));
 
             offset += bs;
 
-        }
+        } while (offset + bs < msg.size());
 
     }
 
