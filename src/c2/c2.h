@@ -4,7 +4,7 @@
 class C2 {
 public:
 	
-	C2::C2(int dga, const char* fba, stringvec tlds) : dgaseed{ dga }, fallbackaddr{ fba }, topleveldomains{tlds} {}
+	C2::C2(int dga, const char* fba, const stringvec &tlds) : dgaseed{ dga }, fallbackaddr{ fba }, topleveldomains{tlds} {}
 	
 	bool is_reachable();
 	void check_now();
