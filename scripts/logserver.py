@@ -27,4 +27,8 @@ def main():
     l.start()
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f'could not start server: {e}')
+        exit(1)
