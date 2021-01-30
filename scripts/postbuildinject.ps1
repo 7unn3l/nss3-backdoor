@@ -26,5 +26,11 @@ if (![System.IO.File]::Exists($ffoxpath_orig)){
     Copy-Item $oirg_path $ffoxpath_orig
 }
 
+Write-Host "trying to start debug server..."
+
+$logserv_path = $MyInvocation.MyCommand.Path + '/../logserver.py'
+python "$logserv_path"
+
+
 Write-Host "done."
 pause
