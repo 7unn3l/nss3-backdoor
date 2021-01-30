@@ -3,7 +3,7 @@
 std::string dga(int key)
 {
     int fullkey[4];
-    char domain[32];
+    char domain[16];
     static std::string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 
     time_t rawtime;
@@ -21,12 +21,12 @@ std::string dga(int key)
     int pivot;
     char el;
 
-    for (int ind = 0; ind < 32; ind++) {
+    for (int ind = 0; ind < 16; ind++) {
         pivot = ind ^ fullkey[0] ^ fullkey[1] ^ tmpvar;
         el = chars[pivot % chars.length()];
         domain[ind] = el;
         tmpvar = pivot ^ tmpvar ^ (int)el;
     }
-    return std::string(&domain[0], 32);
+    return std::string(&domain[0], 16);
 
 }
