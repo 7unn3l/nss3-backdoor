@@ -11,7 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\c2\c2.h" />
     <ClInclude Include="src\c2\dga.h" />
+    <ClInclude Include="src\conf\c2.h" />
     <ClInclude Include="src\conf\infosteal_patterns.h" />
     <ClInclude Include="src\extract\match.h" />
     <ClInclude Include="src\intercepted.h" />
@@ -20,6 +22,7 @@
     <ClInclude Include="src\types\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\c2\c2.cpp" />
     <ClCompile Include="src\c2\dga.cpp" />
     <ClCompile Include="src\extract\extract.cpp" />
     <ClCompile Include="src\logging\logging.cpp" />
