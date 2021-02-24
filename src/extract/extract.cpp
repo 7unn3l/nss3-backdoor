@@ -29,6 +29,8 @@ std::vector<Match> extract_info(void* b,std::vector<ifs_pattern_entry> patterns,
 
 			Match m;
 
+			m.name = element.first;
+
 			//try to get host
 			if (std::regex_search(buf, hmatches, std::regex("Host: .*"))) {
 				LOG("could extract host: " << hmatches[0]);
