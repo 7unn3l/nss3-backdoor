@@ -21,10 +21,9 @@ namespace netpack {
 		Packet(uint8_t i) : id{ i } {};
 
 		template <typename Datatype>
-		friend Packet& operator << (Packet& packet, const Datatype& _data) {
+		friend Packet& operator << (Packet& packet, Datatype data) {
 			static_assert(std::is_standard_layout<Datatype>::value, "cannot serialze datatype");
 
-			Datatype data = 0;
 			switch (sizeof(data))
 			{
 			case 1:
