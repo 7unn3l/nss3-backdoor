@@ -17,6 +17,11 @@ bool C2::is_alive()
     }
 }
 
+void C2::find_and_connect_async() {
+    std::thread t(&C2::find_and_connect,this);
+    t.detach();
+}
+
 bool C2::find_and_connect()
 {
     asio::error_code ec;

