@@ -7,11 +7,9 @@ std::string C2::get_basedomain()
 
 bool C2::is_alive()
 {
-    auto buffer = asio::buffer("1234\n"); //chagne to KEEPALIVE
-
     try {
-
-        mysocket.send(buffer);
+        netpack::Packet p(0);
+        send_packet(p);
         return true;
     }
     catch (...){
