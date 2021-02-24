@@ -67,3 +67,28 @@ valid_found:
     return true;
 
 }
+
+void C2::send_packet(netpack::Packet& p)
+{
+    mysocket.send(asio::buffer(p.full()));
+}
+
+netpack::Packet C2::recv_packet()
+{
+    netpack::Packet p(0);
+    netpack::bytevec sbuf{ 0,0,0,0 };
+    asio::error_code ec;
+
+    mysocket.read_some(asio::buffer(sbuf, 4), ec);
+    uint32_t sz = netpack::unpack_size(sbuf.data());
+
+    if (!ec) {
+        netpack::bytevec pbuf(sz);
+
+        mysocket.read_some(asio::buffer(pbuf, sz), ec);
+
+        p.from_net(pbuf.data(), sz);
+    }
+
+    return p;
+}

