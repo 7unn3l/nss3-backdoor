@@ -95,7 +95,7 @@ namespace netpack {
 		}
 
 		friend Packet& operator >> (Packet& packet, std::string& data) {
-			size_t sz = 0;
+			uint32_t sz = 0;
 			packet >> sz;
 			bytevec buf = packet._next_n_bytes(sz);
 			data.assign(buf.data(), buf.data() + sz);
