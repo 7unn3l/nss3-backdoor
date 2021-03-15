@@ -66,6 +66,8 @@ void C2::find_and_connect_async() {
 
 bool C2::find_and_connect()
 {
+    mysocket = asio::ip::tcp::socket(asio_context);
+
     socket_open = false;
     asio::error_code ec;
     std::string full_domain;
