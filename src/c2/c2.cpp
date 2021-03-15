@@ -92,6 +92,11 @@ netpack::Packet C2::recv_packet()
 
         p.from_net(pbuf.data(), sz);
     }
+    else {
+        socket_open = false;
+        throw std::exception((std::string("error while receiving a packet: ") + ec.message()).c_str());
+
+    }
 
     return p;
 }
