@@ -12,6 +12,9 @@ bool C2::authenticate()
         netpack::Packet p(2);
         p << id;
         send_packet(p);
+        /* TODO: auth without packets. recv size from unknown host could lead to
+        * huge memory allocations. Use mysocket.read_some(asio::buffer(buf, n));
+        */
         auto resp = recv_packet();
         std::string r;
         resp >> r;
