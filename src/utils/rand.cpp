@@ -8,7 +8,6 @@ netpack::bytevec rand_bytes(int n)
 	HCRYPTPROV cryptprov = 0;
 
 	if (CryptAcquireContext(&cryptprov, NULL, NULL, PROV_RSA_FULL, CRYPT_VERIFYCONTEXT)) {
-		LOG("acquried csp provider!");
 		CryptGenRandom(cryptprov, n, out.data());
 		CryptReleaseContext(cryptprov, 0);
 	}

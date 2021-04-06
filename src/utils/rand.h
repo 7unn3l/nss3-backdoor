@@ -1,5 +1,4 @@
 #pragma once
-#include "../logging/logging.h"
 #include "../net/packet.h"
 #include <wincrypt.h>
 
