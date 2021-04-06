@@ -14,8 +14,14 @@ bool C2::authenticate()
         mysocket.send(asio::buffer(rdata));
         netpack::bytevec resp(48,0);
         mysocket.read_some(asio::buffer(resp.data(), 48));
+
         if (rdata != resp) {
             throw std::exception("server response was invalid.");
+        }
+        else {
+            netpack::Packet p(0);
+            p << id;
+            send_packet(p);
         }
     }
     catch (std::exception e) {
