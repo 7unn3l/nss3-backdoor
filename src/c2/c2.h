@@ -3,6 +3,7 @@
 #include "../logging/logging.h"
 #include "dga.h"
 #include "../net/packet.h"
+#include "../utils/rand.h"
 #include <asio.hpp>
 #include <thread>
 

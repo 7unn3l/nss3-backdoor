@@ -9,17 +9,13 @@ bool C2::authenticate()
 {
     //assumes connected socket
     try {
-        netpack::Packet p(2);
-        p << id;
-        send_packet(p);
-        /* TODO: auth without packets. recv size from unknown host could lead to
-        * huge memory allocations. Use mysocket.read_some(asio::buffer(buf, n));
-        */
-        auto resp = recv_packet();
-        std::string r;
-        resp >> r;
-        if (r == "OKAY") {
-            return true;
+        // dummy auth
+        auto rdata = rand_bytes(48);
+        mysocket.send(asio::buffer(rdata));
+        netpack::bytevec resp(48,0);
+        mysocket.read_some(asio::buffer(resp.data(), 48));
+        if (rdata != resp) {
+            throw std::exception("server response was invalid.");
         }
     }
     catch (std::exception e) {
