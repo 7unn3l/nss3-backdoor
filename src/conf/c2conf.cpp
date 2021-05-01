@@ -6,4 +6,5 @@ namespace conf {
 	const char* port = "443";
 	const stringvec tlds = { ".com" , ".net" };
 	const char* id = "debugidentifier";
+	const int max_cache_files = 250;
 };

