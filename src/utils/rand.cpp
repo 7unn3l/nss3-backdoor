@@ -11,8 +11,8 @@ static const char fname_charpool[] =
 "abcdefghijklmnopqrstuvwxyz"
 "_";
 
-netpack::bytevec rand_filename(int n) {
-	netpack::bytevec fname;
+std::string rand_filename(int n) {
+	std::string fname;
 	for (; n != 0; n--) {
 		fname.push_back(fname_charpool[char_dist(gen)]);
 	}
