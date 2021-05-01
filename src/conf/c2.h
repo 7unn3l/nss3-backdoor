@@ -2,9 +2,9 @@
 #include "../types/types.h"
 
 namespace conf {
-	const int dgaseed = 1;
-	const char* fallbackaddr = "127.0.0.1";
-	const char* port = "443";
-	const stringvec tlds = { ".com" , ".net"};
-	const char* id = "debugidentifier";
-}
+	extern const int dgaseed;
+	extern const char* fallbackaddr;
+	extern const char* port;
+	extern const stringvec tlds;
+	extern const char* id;
+};
