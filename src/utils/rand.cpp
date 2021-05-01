@@ -3,7 +3,7 @@
 std::random_device rd;
 std::mt19937 gen(rd());
 std::uniform_int_distribution<> char_dist(0, 63);
-std::uniform_int_distribution<> byte_dist(0, 63);
+std::uniform_int_distribution<> byte_dist(0, 255);
 
 static const char fname_charpool[] =
 "0123456789"
