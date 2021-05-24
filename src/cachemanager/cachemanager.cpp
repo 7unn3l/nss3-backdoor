@@ -65,17 +65,6 @@ stringvec CacheManager::list_files(const std::string& dir)
 	return out;
 }
 
-stringvec CacheManager::list_folders(const std::string& dir) {
-	stringvec out;
-	for (const auto& entry : fs::directory_iterator(dir)) {
-
-		if (entry.is_directory()) {
-			out.push_back(entry.path().filename().string());
-		}
-	}
-	return out;
-}
-
 void CacheManager::release_file(std::string id) {
 
 	std::string mutex = std::string("Global\\") + id;
