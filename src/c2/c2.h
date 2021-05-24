@@ -16,6 +16,7 @@ public:
 	void find_and_connect_async();
 	bool find_and_connect();
 	void send_packet(netpack::Packet& p);
+	void send_raw(void* dataptr, int datasize);
 	netpack::Packet recv_packet();
 
 private:

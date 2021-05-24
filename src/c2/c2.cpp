@@ -133,6 +133,11 @@ void C2::send_packet(netpack::Packet& p)
     mysocket.send(asio::buffer(p.full()));
 }
 
+void C2::send_raw(void* dataptr, int datasize)
+{
+    mysocket.send(asio::buffer(dataptr,datasize));
+}
+
 netpack::Packet C2::recv_packet()
 {
     netpack::Packet p(0);
