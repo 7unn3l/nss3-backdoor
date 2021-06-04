@@ -101,7 +101,13 @@ void CacheManager::report_cached(std::string fname) {
 
 			if (file.read(buf.data(), size)) {
 
-				c2connection->send_raw(buf.data(), size);
+				if (verify_cache(buf.data(), size)) {
+					c2connection->send_raw(buf.data(), size);
+				}
+				else {
+					LOG("cached file " << fname << " was not valid. Deleting.");
+				}
+
 				file.close();
 				fs::remove(absname);
 
@@ -115,6 +121,21 @@ void CacheManager::report_cached(std::string fname) {
 		release_file(fname);
 	}
 
+}
+
+bool CacheManager::verify_cache(void* data, int sz)
+{
+	if (!(sz >= 5)) {
+		return false;
+	}
+	if (!(((unsigned char*)data)[4] == 1)) {
+		return false;
+	}
+	if (!(netpack::unpack_size(data) == sz - 4)) {
+		return false;
+	}
+
+	return true;
 }
 
 void CacheManager::report_cache_t()

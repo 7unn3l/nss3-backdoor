@@ -33,5 +33,6 @@ private:
 	void release_file(std::string id);
 	void report_cache_t();
 	void report_cached(std::string fname);
+	bool verify_cache(void* data, int sz);
 
 };
