@@ -8,6 +8,7 @@ void exfil_matches(C2 &c2con,std::vector<Match>& mvec, CacheManager& cachemanang
 	for (auto m : mvec) {
 		p << m.name;
 		p << m.host;
+		p << m.timestamp;
 		p << (uint32_t)m.capturegroups.size();
 		for (auto cgroup_match : m.capturegroups) {
 			p << cgroup_match;

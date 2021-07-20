@@ -24,6 +24,7 @@
     <ClInclude Include="src\proxied.h" />
     <ClInclude Include="src\types\types.h" />
     <ClInclude Include="src\utils\rand.h" />
+    <ClInclude Include="src\utils\time.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\c2\c2.cpp" />
@@ -36,6 +37,7 @@
     <ClCompile Include="src\net\exfil.cpp" />
     <ClCompile Include="src\net\packet.cpp" />
     <ClCompile Include="src\utils\rand.cpp" />
+    <ClCompile Include="src\utils\time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\extract\extract.h" />

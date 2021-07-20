@@ -1,6 +1,7 @@
 #pragma once
 #include "../types/types.h"
 #include "../logging/logging.h"
+#include "../utils/time.h"
 #include "match.h"
 
 struct Match;
